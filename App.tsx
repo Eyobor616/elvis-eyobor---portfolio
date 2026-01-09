@@ -109,7 +109,7 @@ const LogoMarquee: React.FC = () => {
 const CommunityContributionsSection: React.FC = () => {
   const c = portfolioData.community;
   const profileUrl = c?.profileUrl || 'https://skool.com';
-  const imageUrl = c?.imageUrl || '/skool-profile.png';
+  const imageUrl = c?.imageUrl || 'https://bnuuvwxrnfwlwxinwulf.supabase.co/storage/v1/object/public/ElvisEyoborPortfolio-ProjectPictures/Skool%20Profile.jpeg';
 
   return (
     <section className="py-32 bg-white">
