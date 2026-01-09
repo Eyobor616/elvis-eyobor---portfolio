@@ -67,7 +67,7 @@ export const portfolioData: PortfolioData = {
       name: "Vendor Management System",
       client: "ZoomTan Inc.",
       period: "Feb - Apr 2025",
-      description: "Solution to address Zoom Tan’s key operational challenges regarding vendor oversight.",
+      description: "Solution to address Zoom Tan's key operational challenges regarding vendor oversight.",
       project_pictures: ["https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?q=80&w=1200&auto=format&fit=crop"],
       features: [
         "Seamless integration with existing Excel spreadsheets",
@@ -110,5 +110,66 @@ export const portfolioData: PortfolioData = {
         "Integration with Power BI and SharePoint"
       ]
     }
-  ]
+  ],
+  youtubeTutorials: [
+    {
+      id: "iqc4kKRBHwE",
+      title: "How to generate barcode using power platform",
+      description: "Ready to build powerful apps with zero fluff? This beginner-friendly tutorial breaks down how to perform CRUD operations (Create, Read, Update, Delete) in PowerApps—all in under 10 minutes! 💡",
+      thumbnailUrl: "https://i.ytimg.com/vi/iqc4kKRBHwE/maxresdefault.jpg",
+      videoUrl: "https://www.youtube.com/watch?v=iqc4kKRBHwE",
+      views: "12K views",
+      duration: "45:32"
+    },
+    {
+      id: "h84Z_pFCaGU",
+      title: "How to create a PowerApps app from a Figma design",
+      description: "Master Power Automate with this step-by-step guide. Learn how to create automated workflows that save time and increase productivity.",
+      thumbnailUrl: "https://i.ytimg.com/vi/h84Z_pFCaGU/maxresdefault.jpg",
+      videoUrl: "https://www.youtube.com/watch?v=h84Z_pFCaGU&t=13s",
+      views: "8.5K views",
+      duration: "38:15"
+    },
+    {
+      id: "meEFY3-hff8",
+      title: "How to generate QR code using power platform",
+      description: "Create stunning dashboards in Power BI. From data connection to visualization, learn how to build reports that drive insights.",
+      thumbnailUrl: "https://i.ytimg.com/vi/meEFY3-hff8/maxresdefault.jpg",
+      videoUrl: "https://www.youtube.com/watch?v=meEFY3-hff8",
+      views: "15K views",
+      duration: "52:48"
+    }
+    ,
+    {
+      id: "GzICP4ljS_g",
+      title: "Power Platform Tutorial: Advanced Techniques",
+      description: "Advanced tips and techniques for building scalable Power Platform solutions.",
+      thumbnailUrl: "https://i.ytimg.com/vi/GzICP4ljS_g/maxresdefault.jpg",
+      videoUrl: "https://www.youtube.com/watch?v=GzICP4ljS_g&t=26s",
+      views: "6K views",
+      duration: "22:10"
+    },
+    {
+      id: "EbgVG6Z-yhs",
+      title: "Power BI: From Zero to Hero",
+      description: "A comprehensive walkthrough to create meaningful Power BI reports and dashboards.",
+      thumbnailUrl: "https://i.ytimg.com/vi/EbgVG6Z-yhs/maxresdefault.jpg",
+      videoUrl: "https://www.youtube.com/watch?v=EbgVG6Z-yhs&t=580s",
+      views: "20K views",
+      duration: "1:15:40"
+    }
+  ],
+  community: {
+    name: "Learn Power Apps",
+    platform: "Skool",
+    profileUrl: "https://skool.com",
+    imageUrl: "/my-react-app/public/img/Skool%20Profile.jpeg",
+    members: 3000,
+    contributions: 600,
+    followers: 33,
+    following: 23,
+    handle: "@elvis-eyobor-3582",
+    role: "Community Moderator",
+    level: "Level 6 - Purple Belt"
+  }
 };

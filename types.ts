@@ -37,10 +37,36 @@ export interface SkillCategory {
   skills: string[];
 }
 
+export interface YouTubeTutorial {
+  id: string;
+  title: string;
+  description: string;
+  thumbnailUrl: string;
+  videoUrl: string;
+  views: string;
+  duration: string;
+}
+
 export interface PortfolioData {
   personalInfo: PersonalInfo;
   professionalSummary: string;
   technicalSkills: SkillCategory[];
   experience: ExperienceItem[];
   projects: ProjectItem[];
+  youtubeTutorials: YouTubeTutorial[];
+  community?: CommunityProfile;
+}
+
+export interface CommunityProfile {
+  name: string;
+  platform: string;
+  profileUrl: string;
+  imageUrl?: string;
+  members?: number;
+  contributions?: number;
+  followers?: number;
+  following?: number;
+  handle?: string;
+  role?: string;
+  level?: string;
 }
