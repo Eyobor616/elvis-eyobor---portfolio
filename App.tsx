@@ -1,4 +1,3 @@
-
 import React, { useState, useEffect, useMemo } from 'react';
 import { TypeAnimation } from 'react-type-animation';
 import {
@@ -29,7 +28,7 @@ import {
   MessageCircle
 } from 'lucide-react';
 import { portfolioData } from './data';
-import { ProjectItem, SkillCategory } from './types';
+import { ProjectItem, SkillCategory, YouTubeTutorial } from './types';
 
 // --- Supabase Initialization ---
 const SUPABASE_URL = 'https://bnuuvwxrnfwlwxinwulf.supabase.co';
@@ -107,6 +106,195 @@ const LogoMarquee: React.FC = () => {
   );
 };
 
+const CommunityContributionsSection: React.FC = () => {
+  const c = portfolioData.community;
+  const profileUrl = c?.profileUrl || 'https://skool.com';
+  const imageUrl = c?.imageUrl || '/skool-profile.png';
+
+  return (
+    <section className="py-32 bg-white">
+      <div className="container mx-auto px-6">
+        <div className="grid lg:grid-cols-12 gap-12 items-center">
+          <div className="lg:col-span-5 space-y-6 order-2 lg:order-2">
+            <div className="flex items-center gap-4">
+              <div className="w-12 h-12 rounded-lg bg-blue-50 flex items-center justify-center text-[#1E40AF]"><MessageCircle size={20} /></div>
+              <h2 className="text-4xl md:text-5xl font-black tracking-tighter">Community Contributions</h2>
+            </div>
+            <p className="italic text-slate-500">Empowering the Power Platform Ecosystem Through Active Support and Knowledge Sharing</p>
+
+            <p className="text-lg text-slate-700 max-w-3xl">
+              I am a dedicated contributor to the Power Platform community on {c?.platform || 'Skool'}, a dynamic network of approximately {c?.members?.toLocaleString() || '3,000'} members.
+            </p>
+
+            <p className="text-lg text-slate-700 max-w-3xl">
+              With over {c?.contributions || '600'} contributions—including expert support responses, insightful posts, and collaborative discussions—I help developers and professionals troubleshoot challenges, share best practices, and drive innovation in tools like Power Apps, Power Automate, and Power BI.
+            </p>
+
+            <div className="flex items-center gap-4">
+              <a
+                href="https://www.linkedin.com/in/elvis-eyobor-9105a41a1/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="bg-[#f09d1b] text-white px-8 py-5 rounded-2xl font-black uppercase tracking-widest text-xs hover:opacity-90 transition-all shadow-lg shadow-orange-100"
+              >
+                Connect on LinkedIn
+              </a>
+              <a
+                href={profileUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="border border-slate-200 px-8 py-5 rounded-2xl font-black uppercase tracking-widest text-xs text-slate-700 hover:bg-slate-50 transition-all shadow-lg shadow-orange-100"
+              >
+                View Community on {c?.platform || 'Skool'}
+              </a>
+            </div>
+          </div>
+
+          <div className="lg:col-span-7 order-1 lg:order-1">
+            <img
+              src={imageUrl}
+              alt={c?.name || 'Community'}
+              className="w-full h-full object-cover rounded-2xl cursor-pointer hover:shadow-md transition-shadow"
+              onClick={() => window.open(profileUrl, '_blank')}
+            />
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+};
+
+const YouTubeTutorialsSection: React.FC<{ tutorials: YouTubeTutorial[] }> = ({ tutorials }) => {
+  const [hoveredIdx, setHoveredIdx] = useState<number | null>(null);
+  const [playingId, setPlayingId] = useState<string | null>(null);
+
+  const parseStartSeconds = (url: string) => {
+    // look for t=123s or t=123
+    const m = url.match(/[?&]t=(\d+)s?/);
+    if (m && m[1]) return parseInt(m[1], 10);
+    return 0;
+  };
+
+  const getEmbedSrc = (tutorial: YouTubeTutorial, muted = true) => {
+    const start = parseStartSeconds(tutorial.videoUrl);
+    return `https://www.youtube.com/embed/${tutorial.id}?autoplay=1&mute=${muted ? 1 : 0}&rel=0&enablejsapi=1${start ? `&start=${start}` : ''}`;
+  };
+
+  return (
+    <section className="py-32 bg-slate-50">
+      <div className="container mx-auto px-6">
+        <div className="flex justify-between items-end mb-16">
+          <div className="space-y-4">
+            <h2 className="text-sm font-black text-slate-400 uppercase tracking-[0.4em]">Learn</h2>
+            <h3 className="text-5xl font-extrabold tracking-tighter text-slate-900">Top Tutorials</h3>
+          </div>
+          <a
+            href="https://www.youtube.com/@eyoborelvis8224"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="hidden md:flex items-center gap-3 text-sm font-black uppercase tracking-widest text-[#FF0000] hover:text-[#cc0000] transition-colors"
+          >
+            Subscribe <ArrowRight size={18} />
+          </a>
+        </div>
+
+        <div className="grid md:grid-cols-3 gap-8">
+          {tutorials.map((tutorial, idx) => (
+            <div
+              key={tutorial.id || idx}
+              onMouseEnter={() => setHoveredIdx(idx)}
+              onMouseLeave={() => setHoveredIdx(prev => (prev === idx ? null : prev))}
+              onClick={() => setPlayingId(tutorial.id)}
+              className="group cursor-pointer space-y-4 block"
+            >
+              <div className="aspect-video bg-slate-200 rounded-3xl overflow-hidden relative shadow-sm transition-all hover:shadow-2xl">
+                {hoveredIdx === idx || playingId === tutorial.id ? (
+                  <iframe
+                    loading="lazy"
+                    src={getEmbedSrc(tutorial, true)}
+                    title={tutorial.title}
+                    className="w-full h-full border-0"
+                    allow="autoplay; encrypted-media; picture-in-picture"
+                    allowFullScreen
+                  />
+                ) : (
+                  <img
+                    src={tutorial.thumbnailUrl}
+                    alt={tutorial.title}
+                    loading="lazy"
+                    className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+                  />
+                )}
+
+                <div className={`absolute inset-0 transition-all flex items-center justify-center ${hoveredIdx === idx || playingId === tutorial.id ? 'bg-black/10' : 'bg-black/0 group-hover:bg-black/20'}`}>
+                  <div className={`w-16 h-16 bg-white/90 rounded-full flex items-center justify-center transition-all ${hoveredIdx === idx || playingId === tutorial.id ? 'opacity-100 scale-100' : 'opacity-0 scale-50'}`}>
+                    <Youtube size={28} className="text-[#FF0000]" />
+                  </div>
+                </div>
+
+                <div className="absolute bottom-3 right-3 bg-black/80 text-white text-xs font-bold px-2 py-1 rounded-md">
+                  {tutorial.duration}
+                </div>
+              </div>
+
+              <div className="px-2 space-y-2">
+                <h4 className="text-lg font-black tracking-tighter text-slate-900 group-hover:text-[#FF0000] transition-colors line-clamp-2">
+                  {tutorial.title}
+                </h4>
+                <p className="text-slate-500 font-medium text-sm line-clamp-2">
+                  {tutorial.description}
+                </p>
+                <div className="flex items-center gap-3 text-xs text-slate-400 font-medium">
+                  <span>{tutorial.views}</span>
+                  <span className="w-1 h-1 rounded-full bg-slate-300"></span>
+                  <span className="text-[#FF0000]">Power Platform</span>
+                </div>
+              </div>
+            </div>
+          ))}
+        </div>
+
+        <div className="mt-16 flex justify-center">
+          <a
+            href="https://www.youtube.com/@eyoborelvis8224"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="bg-[#FF0000] text-white px-10 py-5 rounded-2xl font-black uppercase tracking-widest text-xs hover:bg-[#cc0000] transition-all flex items-center gap-3"
+          >
+            <Youtube size={18} />
+            Watch More Tutorials
+          </a>
+        </div>
+
+        {/* Modal for clicked video */}
+        {playingId && (
+          <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/70 p-6">
+            <div className="w-full max-w-4xl bg-transparent relative rounded-lg overflow-hidden">
+              <button
+                onClick={() => setPlayingId(null)}
+                className="absolute top-4 right-4 z-50 bg-white/90 text-slate-900 rounded-full w-10 h-10 flex items-center justify-center shadow-lg"
+                aria-label="Close video"
+              >
+                <X size={18} />
+              </button>
+              <div className="aspect-video w-full bg-black">
+                <iframe
+                  loading="lazy"
+                  src={getEmbedSrc(tutorials.find(t => t.id === playingId) as YouTubeTutorial, false)}
+                  title={tutorials.find(t => t.id === playingId)?.title || 'Video'}
+                  className="w-full h-full border-0"
+                  allow="autoplay; encrypted-media; picture-in-picture"
+                  allowFullScreen
+                />
+              </div>
+            </div>
+          </div>
+        )}
+      </div>
+    </section>
+  );
+};
+
 const Navbar: React.FC<{ currentScreen: Screen; onNavigate: (s: Screen) => void }> = ({ currentScreen, onNavigate }) => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
@@ -170,26 +358,45 @@ const Navbar: React.FC<{ currentScreen: Screen; onNavigate: (s: Screen) => void 
   );
 };
 
+// --- Shared Components ---
+
+const SocialMediaLinks: React.FC<{ containerClasses?: string }> = ({ containerClasses = "" }) => {
+  return (
+    <div className={containerClasses}>
+      {portfolioData.socialMedia.map((social) => (
+        <a
+          key={social.name}
+          href={social.url}
+          className="group flex items-center w-14 h-14 rounded-2xl hover:w-auto transition-all"
+        >
+          <img className="w-14 h-14 flex items-center justify-center w-6 h-6" src={social.iconUrl} alt={social.name}/>
+          <span className="ml-2 text-sm font-bold invisible opacity-0 group-hover:visible group-hover:opacity-100 transition-opacity text-[#742774]">{social.name}</span>
+        </a>
+      ))}
+    </div>
+  );
+};
+
 // --- Screen Components ---
 
-const LandingScreen: React.FC<{ onNavigate: (s: Screen, d?: any) => void; featuredProjects: ProjectItem[] }> = ({ onNavigate, featuredProjects }) => {
+const LandingScreen: React.FC<{ onNavigate: (s: Screen, d?: any) => void; featuredProjects: ProjectItem[]; youtubeTutorials: YouTubeTutorial[] }> = ({ onNavigate, featuredProjects, youtubeTutorials }) => {
   const subheadlines = [
     "I craft high-quality web apps and Power Platform solutions that scale from startups to global enterprises—empowering your business to thrive.",
     5000,
     '',
-    500,
+    0,
     "Stuck on a technical challenge? I offer live support to get you unstuck and moving forward with confidence.",
     5000,
     '',
-    500,
+    0,
     "Mentoring individuals and teams to level up their skills and processes—whether it's Power Apps, automation, or operations excellence.",
     5000,
     '',
-    500,
+    0,
     "From maintenance planning to interactive dashboards, I deliver tailored innovations that drive real results. Let's build something amazing together.",
     5000,
     '',
-    500
+    0
   ];
 
   return (
@@ -209,7 +416,7 @@ const LandingScreen: React.FC<{ onNavigate: (s: Screen, d?: any) => void; featur
                   Hi, I'm <span className="text-[#742774]">Elvis Eyobor</span>
                 </h1>
                 <p className="text-lg md:text-xl font-medium text-slate-600/80 -mt-2">
-                  – Turning Ideas into Efficient, Data-Driven Solutions
+                  ~ Turning Ideas into Efficient, Data-Driven Solutions
                 </p>
                 <TypeAnimation
                   sequence={subheadlines}
@@ -218,6 +425,7 @@ const LandingScreen: React.FC<{ onNavigate: (s: Screen, d?: any) => void; featur
                   repeat={Infinity}
                   cursor={true}
                   speed={70}
+                  omitDeletionAnimation={true}
                 />
               </div>
               <div className="flex flex-wrap gap-4 pt-4">
@@ -225,26 +433,7 @@ const LandingScreen: React.FC<{ onNavigate: (s: Screen, d?: any) => void; featur
                   Get in Touch
                 </button>
               </div>
-              <div className="flex gap-4 pt-4">
-                <a href="https://www.youtube.com/@eyoborelvis8224?sub_confirmation=1" className="w-14 h-14 bg-slate-100 rounded-2xl flex items-center justify-center hover:bg-[#742774] hover:text-white transition-all border border-slate-200">
-                  <Youtube size={24} />
-                </a>
-                <a href="https://wa.me/2348080927312" className="w-14 h-14 bg-slate-100 rounded-2xl flex items-center justify-center hover:bg-[#742774] hover:text-white transition-all border border-slate-200">
-                  <MessageCircle size={24} />
-                </a>
-                <a href="https://x.com/Eyobor1" className="w-14 h-14 bg-slate-100 rounded-2xl flex items-center justify-center hover:bg-[#742774] hover:text-white transition-all border border-slate-200">
-                  <Twitter size={24} />
-                </a>
-                <a href="https://www.facebook.com/groups/1419650492494392" className="w-14 h-14 bg-slate-100 rounded-2xl flex items-center justify-center hover:bg-[#742774] hover:text-white transition-all border border-slate-200">
-                  <Facebook size={24} />
-                </a>
-                <a href="https://www.linkedin.com/in/elvis-eyobor-9105a41a1/" className="w-14 h-14 bg-slate-100 rounded-2xl flex items-center justify-center hover:bg-[#742774] hover:text-white transition-all border border-slate-200">
-                  <Linkedin size={24} />
-                </a>
-                <a href="https://tr.ee/RSKr08CYod" className="w-14 h-14 bg-slate-100 rounded-2xl flex items-center justify-center hover:bg-[#742774] hover:text-white transition-all border border-slate-200">
-                  <ExternalLink size={24} />
-                </a>
-              </div>
+              <SocialMediaLinks containerClasses="flex gap-4 pt-4" />
             </div>
             
             {/* Right Column: Photo (No Frame) */}
@@ -257,6 +446,21 @@ const LandingScreen: React.FC<{ onNavigate: (s: Screen, d?: any) => void; featur
                 />
               </div>
             </div>
+          </div>
+        </div>
+      </section>
+
+      {/* About Intro Section */}
+      <section className="py-32 bg-white">
+        <div className="container mx-auto px-6">
+          <div className="max-w-4xl mx-auto text-center space-y-8">
+            <h2 className="text-6xl md:text-8xl font-black tracking-tighter text-slate-900 leading-[0.85]">Solving Challenges with <span className="text-[#742774]">Code & Data.</span></h2>
+            <p className="text-2xl text-slate-500 leading-relaxed font-medium max-w-3xl mx-auto">
+              As a Microsoft Certified Power Platform Developer, I transform complex business challenges into streamlined, data-driven solutions. With expertise in Power Apps, Power Automate, and Power BI, I build efficient workflows and interactive dashboards that drive real results. My background in maintenance planning adds a unique edge to optimizing operations across industries...
+            </p>
+            <button onClick={() => onNavigate('about')} className="bg-[#742774] text-white px-8 py-5 rounded-2xl font-black uppercase tracking-widest text-xs hover:opacity-90 transition-all shadow-lg shadow-purple-100">
+              Read More About Me
+            </button>
           </div>
         </div>
       </section>
@@ -301,12 +505,17 @@ const LandingScreen: React.FC<{ onNavigate: (s: Screen, d?: any) => void; featur
           </div>
 
           <div className="mt-16 flex justify-center">
-             <button onClick={() => onNavigate('projects')} className="bg-slate-900 text-white px-10 py-5 rounded-2xl font-black uppercase tracking-widest text-xs hover:bg-[#742774] transition-all">
-                Show More Projects
-             </button>
+              <button onClick={() => onNavigate('projects')} className="bg-slate-900 text-white px-10 py-5 rounded-2xl font-black uppercase tracking-widest text-xs hover:bg-[#742774] transition-all">
+                 Show More Projects
+              </button>
           </div>
         </div>
       </section>
+
+      {/* YouTube Tutorials Section */}
+      <YouTubeTutorialsSection tutorials={youtubeTutorials} />
+      {/* Community Contributions Section */}
+      <CommunityContributionsSection />
     </div>
   );
 };
@@ -317,9 +526,9 @@ const AboutScreen: React.FC<{ onNavigate: (s: Screen) => void }> = ({ onNavigate
       <div className="container mx-auto px-6">
         <div className="grid lg:grid-cols-12 gap-16 items-start">
           <div className="lg:col-span-5">
-             <div className="aspect-[4/5] bg-slate-100 rounded-[3rem] overflow-hidden">
-                <img src="https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?q=80&w=800&auto=format&fit=crop" className="w-full h-full object-cover filter grayscale" />
-             </div>
+              <div className="aspect-[4/5] bg-slate-100 rounded-[3rem] overflow-hidden">
+                 <img src="https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?q=80&w=800&auto=format&fit=crop" className="w-full h-full object-cover filter grayscale" />
+              </div>
           </div>
           <div className="lg:col-span-7 space-y-16">
             <section className="space-y-8">
@@ -612,6 +821,7 @@ const App: React.FC = () => {
   const [selectedProject, setSelectedProject] = useState<ProjectItem | null>(null);
   const [projects, setProjects] = useState<ProjectItem[]>([]);
   const [featuredProjects, setFeaturedProjects] = useState<ProjectItem[]>([]);
+  const [youtubeTutorials, setYoutubeTutorials] = useState<YouTubeTutorial[]>([]);
   const [loading, setLoading] = useState(true);
 
   const supabaseClient = useMemo(() => getSupabase(), []);
@@ -625,6 +835,7 @@ const App: React.FC = () => {
           console.warn("Supabase client not available, using local data.");
           setProjects(portfolioData.projects);
           setFeaturedProjects(portfolioData.projects.slice(0, 3));
+          setYoutubeTutorials(portfolioData.youtubeTutorials);
           return;
         }
 
@@ -665,10 +876,12 @@ const App: React.FC = () => {
         const finalProjects = normalized.length ? normalized : portfolioData.projects;
         setProjects(finalProjects);
         setFeaturedProjects(finalProjects.slice(0, 3));
+        setYoutubeTutorials(portfolioData.youtubeTutorials);
       } catch (err: any) {
         console.error("Detailed Fetch Error:", err?.message || err || "Unknown error");
         setProjects(portfolioData.projects);
         setFeaturedProjects(portfolioData.projects.slice(0, 3));
+        setYoutubeTutorials(portfolioData.youtubeTutorials);
       } finally {
         setTimeout(() => setLoading(false), 600);
       }
@@ -698,7 +911,7 @@ const App: React.FC = () => {
       <Navbar currentScreen={currentScreen} onNavigate={navigate} />
       
       <main className="flex-grow">
-        {currentScreen === 'home' && <LandingScreen onNavigate={navigate} featuredProjects={featuredProjects} />}
+        {currentScreen === 'home' && <LandingScreen onNavigate={navigate} featuredProjects={featuredProjects} youtubeTutorials={youtubeTutorials} />}
         {currentScreen === 'about' && <AboutScreen onNavigate={navigate} />}
         {currentScreen === 'projects' && <ProjectsScreen projects={projects} onNavigate={navigate} />}
         {currentScreen === 'contact' && <ContactScreen />}
@@ -708,12 +921,9 @@ const App: React.FC = () => {
       <footer className="py-20 border-t border-slate-100 bg-white">
         <div className="container mx-auto px-6 text-center space-y-6">
           <div className="text-3xl font-black tracking-tighter text-slate-900">
-            ELVIS<span className="text-[#742774]">.</span>EYOBOR
+            ELVIS    EYOBOR
           </div>
-          <div className="flex justify-center gap-6 text-slate-400">
-             <a href="#" className="hover:text-[#742774] transition-colors"><Linkedin size={20} /></a>
-             <a href="#" className="hover:text-[#742774] transition-colors"><Mail size={20} /></a>
-          </div>
+          <SocialMediaLinks containerClasses="flex justify-center gap-4" />
           <p className="text-[10px] font-black uppercase tracking-[0.4em] text-slate-300">© 2024 Power Platform Solutions Specialist</p>
         </div>
       </footer>
