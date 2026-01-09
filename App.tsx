@@ -132,10 +132,10 @@ const CommunityContributionsSection: React.FC = () => {
 
             <div className="flex items-center gap-4">
               <a
-                href={portfolioData.personalInfo?.socials?.linkedin ? `https://www.linkedin.com/in/${portfolioData.personalInfo.socials.linkedin.replace(/\s+/g,'-')}` : 'https://www.linkedin.com'}
+                href="https://www.linkedin.com/in/elvis-eyobor-9105a41a1/"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="bg-[#f09d1b] text-white px-6 py-3 rounded-2xl font-black uppercase tracking-widest text-xs hover:opacity-90 transition-all"
+                className="bg-[#f09d1b] text-white px-8 py-5 rounded-2xl font-black uppercase tracking-widest text-xs hover:opacity-90 transition-all shadow-lg shadow-orange-100"
               >
                 Connect on LinkedIn
               </a>
@@ -143,7 +143,7 @@ const CommunityContributionsSection: React.FC = () => {
                 href={profileUrl}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="border border-slate-200 px-6 py-3 rounded-2xl font-black text-sm text-slate-700 hover:bg-slate-50 transition-all"
+                className="border border-slate-200 px-8 py-5 rounded-2xl font-black uppercase tracking-widest text-xs text-slate-700 hover:bg-slate-50 transition-all shadow-lg shadow-orange-100"
               >
                 View Community on {c?.platform || 'Skool'}
               </a>
@@ -358,6 +358,25 @@ const Navbar: React.FC<{ currentScreen: Screen; onNavigate: (s: Screen) => void 
   );
 };
 
+// --- Shared Components ---
+
+const SocialMediaLinks: React.FC<{ containerClasses?: string }> = ({ containerClasses = "" }) => {
+  return (
+    <div className={containerClasses}>
+      {portfolioData.socialMedia.map((social) => (
+        <a
+          key={social.name}
+          href={social.url}
+          className="group flex items-center w-14 h-14 rounded-2xl hover:w-auto transition-all"
+        >
+          <img className="w-14 h-14 flex items-center justify-center w-6 h-6" src={social.iconUrl} alt={social.name}/>
+          <span className="ml-2 text-sm font-bold invisible opacity-0 group-hover:visible group-hover:opacity-100 transition-opacity text-[#742774]">{social.name}</span>
+        </a>
+      ))}
+    </div>
+  );
+};
+
 // --- Screen Components ---
 
 const LandingScreen: React.FC<{ onNavigate: (s: Screen, d?: any) => void; featuredProjects: ProjectItem[]; youtubeTutorials: YouTubeTutorial[] }> = ({ onNavigate, featuredProjects, youtubeTutorials }) => {
@@ -414,29 +433,7 @@ const LandingScreen: React.FC<{ onNavigate: (s: Screen, d?: any) => void; featur
                   Get in Touch
                 </button>
               </div>
-              <div className="flex gap-4 pt-4">
-                <a href="https://www.youtube.com/@eyoborelvis8224?sub_confirmation=1" className="w-14 h-14 bg-slate-100 rounded-2xl flex items-center justify-center hover:bg-[#742774] hover:text-white transition-all border border-slate-200">
-                  <Youtube size={24} />
-                </a>
-                <a href="https://wa.me/2348080927312" className="w-14 h-14 bg-slate-100 rounded-2xl flex items-center justify-center hover:bg-[#742774] hover:text-white transition-all border border-slate-200">
-                  <Twitter size={24} />
-                </a>
-                <a href="https://x.com/Eyobor1" className="w-14 h-14 bg-slate-100 rounded-2xl flex items-center justify-center hover:bg-[#742774] hover:text-white transition-all border border-slate-200">
-                  <Twitter size={24} />
-                </a>
-                <a href="https://www.skool.com/@elvis-eyobor-3582?g=learn-power-apps" className="w-14 h-14 bg-slate-100 rounded-2xl flex items-center justify-center hover:bg-[#742774] hover:text-white transition-all border border-slate-200">
-                  <Twitter size={24} />
-                </a>
-                <a href="https://www.facebook.com/groups/1419650492494392" className="w-14 h-14 bg-slate-100 rounded-2xl flex items-center justify-center hover:bg-[#742774] hover:text-white transition-all border border-slate-200">
-                  <Facebook size={24} />
-                </a>
-                <a href="https://www.linkedin.com/in/elvis-eyobor-9105a41a1/" className="w-14 h-14 bg-slate-100 rounded-2xl flex items-center justify-center hover:bg-[#742774] hover:text-white transition-all border border-slate-200">
-                  <Linkedin size={24} />
-                </a>
-                <a href="https://tr.ee/RSKr08CYod" className="w-14 h-14 bg-slate-100 rounded-2xl flex items-center justify-center hover:bg-[#742774] hover:text-white transition-all border border-slate-200">
-                  <ExternalLink size={24} />
-                </a>
-              </div>
+              <SocialMediaLinks containerClasses="flex gap-4 pt-4" />
             </div>
             
             {/* Right Column: Photo (No Frame) */}
@@ -924,28 +921,9 @@ const App: React.FC = () => {
       <footer className="py-20 border-t border-slate-100 bg-white">
         <div className="container mx-auto px-6 text-center space-y-6">
           <div className="text-3xl font-black tracking-tighter text-slate-900">
-            ELVIS<span className="text-[#742774]"> </span>EYOBOR
+            ELVIS    EYOBOR
           </div>
-          <div className="flex justify-center gap-4">
-            <a href="https://www.youtube.com/@eyoborelvis8224?sub_confirmation=1" className="w-14 h-14 bg-slate-100 rounded-2xl flex items-center justify-center hover:bg-[#742774] hover:text-white transition-all border border-slate-200">
-              <Youtube size={24} />
-            </a>
-            <a href="https://wa.me/2348080927312" className="w-14 h-14 bg-slate-100 rounded-2xl flex items-center justify-center hover:bg-[#742774] hover:text-white transition-all border border-slate-200">
-              <MessageCircle size={24} />
-            </a>
-            <a href="https://x.com/Eyobor1" className="w-14 h-14 bg-slate-100 rounded-2xl flex items-center justify-center hover:bg-[#742774] hover:text-white transition-all border border-slate-200">
-              <Twitter size={24} />
-            </a>
-            <a href="https://www.facebook.com/groups/1419650492494392" className="w-14 h-14 bg-slate-100 rounded-2xl flex items-center justify-center hover:bg-[#742774] hover:text-white transition-all border border-slate-200">
-              <Facebook size={24} />
-            </a>
-            <a href="https://www.linkedin.com/in/elvis-eyobor-9105a41a1/" className="w-14 h-14 bg-slate-100 rounded-2xl flex items-center justify-center hover:bg-[#742774] hover:text-white transition-all border border-slate-200">
-              <Linkedin size={24} />
-            </a>
-            <a href="https://tr.ee/RSKr08CYod" className="w-14 h-14 bg-slate-100 rounded-2xl flex items-center justify-center hover:bg-[#742774] hover:text-white transition-all border border-slate-200">
-              <ExternalLink size={24} />
-            </a>
-          </div>
+          <SocialMediaLinks containerClasses="flex justify-center gap-4" />
           <p className="text-[10px] font-black uppercase tracking-[0.4em] text-slate-300">© 2024 Power Platform Solutions Specialist</p>
         </div>
       </footer>

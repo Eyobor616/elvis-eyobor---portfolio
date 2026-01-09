@@ -1,5 +1,5 @@
 
-import { PortfolioData } from './types';
+import { PortfolioData, SocialMediaItem } from './types';
 
 export const portfolioData: PortfolioData = {
   personalInfo: {
@@ -171,5 +171,42 @@ export const portfolioData: PortfolioData = {
     handle: "@elvis-eyobor-3582",
     role: "Community Moderator",
     level: "Level 6 - Purple Belt"
-  }
+  },
+  socialMedia: [
+    {
+      name: "YouTube",
+      url: "https://www.youtube.com/@eyoborelvis8224?sub_confirmation=1",
+      iconUrl: "https://upload.wikimedia.org/wikipedia/commons/0/09/YouTube_full-color_icon_%282017%29.svg"
+    },
+    {
+      name: "WhatsApp",
+      url: "https://wa.me/2348080927312",
+      iconUrl: "https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg"
+    },
+    {
+      name: "X",
+      url: "https://x.com/Eyobor1",
+      iconUrl: "https://upload.wikimedia.org/wikipedia/commons/c/ce/X_logo_2023.svg"
+    },
+    {
+      name: "Facebook",
+      url: "https://www.facebook.com/groups/1419650492494392",
+      iconUrl: "https://upload.wikimedia.org/wikipedia/commons/5/51/Facebook_f_logo_%282019%29.svg"
+    },
+    {
+      name: "LinkedIn",
+      url: "https://www.linkedin.com/in/elvis-eyobor-9105a41a1/",
+      iconUrl: "https://upload.wikimedia.org/wikipedia/commons/c/ca/LinkedIn_logo_initials.png"
+    },
+    {
+      name: "Linktree",
+      url: "https://tr.ee/RSKr08CYod",
+      iconUrl: "https://logos-world.net/wp-content/uploads/2022/12/Linktree-Symbol.png"
+    },
+    {
+      name: "Skool",
+      url: "https://www.skool.com/@elvis-eyobor-3582?g=learn-power-apps",
+      iconUrl: "https://theprocesshacker.com/wp-content/uploads/2024/07/Skool-1024x1024.png"
+    }
+  ]
 };

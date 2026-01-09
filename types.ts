@@ -55,6 +55,7 @@ export interface PortfolioData {
   projects: ProjectItem[];
   youtubeTutorials: YouTubeTutorial[];
   community?: CommunityProfile;
+  socialMedia: SocialMediaItem[];
 }
 
 export interface CommunityProfile {
@@ -69,4 +70,10 @@ export interface CommunityProfile {
   handle?: string;
   role?: string;
   level?: string;
+}
+
+export interface SocialMediaItem {
+  name: string;
+  url: string;
+  iconUrl: string;
 }
