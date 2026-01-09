@@ -177,19 +177,19 @@ const LandingScreen: React.FC<{ onNavigate: (s: Screen, d?: any) => void; featur
     "I craft high-quality web apps and Power Platform solutions that scale from startups to global enterprises—empowering your business to thrive.",
     5000,
     '',
-    500,
+    0,
     "Stuck on a technical challenge? I offer live support to get you unstuck and moving forward with confidence.",
     5000,
     '',
-    500,
+    0,
     "Mentoring individuals and teams to level up their skills and processes—whether it's Power Apps, automation, or operations excellence.",
     5000,
     '',
-    500,
+    0,
     "From maintenance planning to interactive dashboards, I deliver tailored innovations that drive real results. Let's build something amazing together.",
     5000,
     '',
-    500
+    0
   ];
 
   return (
@@ -209,7 +209,7 @@ const LandingScreen: React.FC<{ onNavigate: (s: Screen, d?: any) => void; featur
                   Hi, I'm <span className="text-[#742774]">Elvis Eyobor</span>
                 </h1>
                 <p className="text-lg md:text-xl font-medium text-slate-600/80 -mt-2">
-                  – Turning Ideas into Efficient, Data-Driven Solutions
+                  ~ Turning Ideas into Efficient, Data-Driven Solutions
                 </p>
                 <TypeAnimation
                   sequence={subheadlines}
@@ -218,6 +218,7 @@ const LandingScreen: React.FC<{ onNavigate: (s: Screen, d?: any) => void; featur
                   repeat={Infinity}
                   cursor={true}
                   speed={70}
+                  omitDeletionAnimation={true}
                 />
               </div>
               <div className="flex flex-wrap gap-4 pt-4">
