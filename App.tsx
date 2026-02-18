@@ -60,7 +60,7 @@ const LogoMarquee: React.FC = () => {
     },
     { 
       name: "IFPMA", 
-      logo: "https://ifpma.org/wp-content/uploads/2023/01/i2023_IFPMA-Logo-new.jpg" 
+      logo: "https://www.ifpma.org/wp-content/uploads/2023/04/ifpma-logo-social-preview.png"
     },
     { 
       name: "Super PowerLabs", 
@@ -108,8 +108,8 @@ const LogoMarquee: React.FC = () => {
 
 const CommunityContributionsSection: React.FC = () => {
   const c = portfolioData.community;
-  const profileUrl = c?.profileUrl || 'https://skool.com';
-  const imageUrl = c?.imageUrl || 'https://bnuuvwxrnfwlwxinwulf.supabase.co/storage/v1/object/public/ElvisEyoborPortfolio-ProjectPictures/Skool%20Profile.jpeg';
+  const profileUrl = c?.profileUrl || 'https://www.skool.com/@elvis-eyobor-3582?g=learn-power-apps';
+  const imageUrl = c?.imageUrl || 'https://firebasestorage.googleapis.com/v0/b/studio-1523050100-2a1a4.firebasestorage.app/o/Elvis%20Portfolio%20Files%2FSkool%20Profile%20(1).jpeg?alt=media&token=b5218e4c-aea6-417e-a330-d3e7b87647bd';
 
   return (
     <section className="py-32 bg-white">
@@ -440,7 +440,7 @@ const LandingScreen: React.FC<{ onNavigate: (s: Screen, d?: any) => void; featur
             <div className="order-1 lg:order-2 flex justify-center lg:justify-end">
               <div className="w-full max-w-lg aspect-square">
                 <img 
-                  src="https://bnuuvwxrnfwlwxinwulf.supabase.co/storage/v1/object/public/ElvisEyoborPortfolio-ProjectPictures/Elvis%20Eyobor%20Profile%20Picture_AI.png" 
+                  src="https://firebasestorage.googleapis.com/v0/b/studio-1523050100-2a1a4.firebasestorage.app/o/Elvis%20Portfolio%20Files%2FElvis%20Eyobor%20Profile%20Picture_AI.png?alt=media&token=32126503-3a1b-4b3e-850c-5e492125a18e" 
                   alt="Elvis Eyobor" 
                   className="w-full h-full object-cover filter grayscale hover:grayscale-0 transition-all duration-1000"
                 />
@@ -527,7 +527,8 @@ const AboutScreen: React.FC<{ onNavigate: (s: Screen) => void }> = ({ onNavigate
         <div className="grid lg:grid-cols-12 gap-16 items-start">
           <div className="lg:col-span-5">
               <div className="aspect-[4/5] bg-slate-100 rounded-[3rem] overflow-hidden">
-                 <img src="https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?q=80&w=800&auto=format&fit=crop" className="w-full h-full object-cover filter grayscale" />
+                 <img src="https://firebasestorage.googleapis.com/v0/b/studio-1523050100-2a1a4.firebasestorage.app/o/Elvis%20Portfolio%20Files%2FElvis%20Eyobor%20Profile%20Picture_AI.png?alt=media&token=32126503-3a1b-4b3e-850c-5e492125a18e" className="w-full h-full object-cover filter grayscale" />
+                 {/* ?q=80&w=800&auto=format&fit=crop */}
               </div>
           </div>
           <div className="lg:col-span-7 space-y-16">
