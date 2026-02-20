@@ -394,7 +394,7 @@ const LandingScreen: React.FC<{ onNavigate: (s: Screen, d?: any) => void; featur
               <div className="space-y-4">
                 <div className="inline-flex items-center gap-2 py-2 px-4 rounded-full bg-purple-50 text-[#742774] font-black text-[10px] uppercase tracking-widest border border-purple-100">
                   <div className="w-1.5 h-1.5 rounded-full bg-[#742774] animate-pulse"></div>
-                  Solution Architect 1
+                  Solution Architect 2
                 </div>
                 <h1 className="text-4xl md:text-6xl font-black text-slate-900 leading-[0.85] tracking-tighter">
                   Hi, I'm <span className="text-[#742774]">Elvis Eyobor</span>
