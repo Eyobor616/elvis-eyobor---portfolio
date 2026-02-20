@@ -125,7 +125,7 @@ export const portfolioData: PortfolioData = {
       id: "h84Z_pFCaGU",
       title: "How to create a PowerApps app from a Figma design",
       description: "Master Power Automate with this step-by-step guide. Learn how to create automated workflows that save time and increase productivity.",
-      thumbnailUrl: "https://i.ytimg.com/vi/h84Z_pFCaGU/maxresdefault.jpg",
+      thumbnailUrl: "https://i.ytimg.com/vi/iqc4kKRBHwE/maxresdefault.jpg",
       videoUrl: "https://www.youtube.com/watch?v=h84Z_pFCaGU&t=13s",
       views: "8.5K views",
       duration: "38:15"
