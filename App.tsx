@@ -30,22 +30,6 @@ import {
 import { portfolioData } from './data';
 import { ProjectItem, SkillCategory, YouTubeTutorial } from './types';
 
-// --- Supabase Initialization ---
-const SUPABASE_URL = 'https://bnuuvwxrnfwlwxinwulf.supabase.co';
-const SUPABASE_ANON_KEY = 'sb_publishable_cYhc5oCagy3YAGD4wDfd7Q_quGv94i3';
-
-// Helper to get supabase client safely
-const getSupabase = () => {
-  try {
-    const sb = (window as any).supabase;
-    if (sb && sb.createClient) {
-      return sb.createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
-    }
-  } catch (e) {
-    console.error("Failed to initialize Supabase client:", e);
-  }
-  return null;
-};
 
 // --- Navigation Types ---
 type Screen = 'home' | 'about' | 'projects' | 'contact' | 'project-detail';
@@ -485,6 +469,26 @@ const LandingScreen: React.FC<{ onNavigate: (s: Screen, d?: any) => void; featur
               const pics = Array.isArray(p.project_pictures) ? p.project_pictures : [];
               const cover = pics.length > 0 ? pics[0] : null;
               
+              // If Vendor Management System, navigate to ProjectsScreen
+              if (p.name === "Vendor Management System") {
+                return (
+                  <div key={idx} onClick={() => onNavigate('projects')} className="group cursor-pointer space-y-6">
+                    <div className="aspect-[4/3] bg-slate-100 rounded-3xl overflow-hidden relative shadow-sm transition-all hover:shadow-2xl">
+                      {cover ? (
+                        <img src={cover} alt={p.name} className="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-110" />
+                      ) : (
+                        <div className="w-full h-full flex items-center justify-center text-slate-200"><ImageIcon size={48} /></div>
+                      )}
+                      <div className="absolute inset-0 bg-gradient-to-t from-slate-900/40 to-transparent opacity-0 group-hover:opacity-100 transition-opacity"></div>
+                    </div>
+                    <div className="px-2">
+                      <h4 className="text-2xl font-black tracking-tighter text-slate-900 mb-2 group-hover:text-[#742774] transition-colors">{p.name}</h4>
+                      <p className="text-slate-500 font-medium line-clamp-2 text-sm">{p.description}</p>
+                    </div>
+                  </div>
+                );
+              }
+              // Default: old behavior
               return (
                 <div key={idx} onClick={() => onNavigate('project-detail', p)} className="group cursor-pointer space-y-6">
                   <div className="aspect-[4/3] bg-slate-100 rounded-3xl overflow-hidden relative shadow-sm transition-all hover:shadow-2xl">
@@ -586,7 +590,7 @@ const ProjectsScreen: React.FC<{ projects: ProjectItem[]; onNavigate: (s: Screen
     <div className="pt-32 pb-32 animate-in fade-in duration-700">
       <div className="container mx-auto px-6">
         <div className="mb-20 space-y-4">
-          <h1 className="text-6xl md:text-8xl font-black tracking-tighter text-slate-900">Gallery<span className="text-[#742774]">.</span></h1>
+          <h1 className="text-6xl md:text-8xl font-black tracking-tighter text-slate-900">Projects<span className="text-[#742774]">.</span></h1>
           <p className="text-xl text-slate-500 font-medium max-w-xl">
             A comprehensive list of enterprise solutions developed across various industries.
           </p>
@@ -596,10 +600,9 @@ const ProjectsScreen: React.FC<{ projects: ProjectItem[]; onNavigate: (s: Screen
           {projects.map((project, idx) => {
             const pics = Array.isArray(project.project_pictures) ? project.project_pictures : [];
             const cover = pics.length > 0 ? pics[0] : null;
-            
             return (
               <div 
-                key={idx} 
+                key={idx}
                 onClick={() => onNavigate('project-detail', project)}
                 className="group cursor-pointer space-y-6"
               >
@@ -626,64 +629,83 @@ const ProjectsScreen: React.FC<{ projects: ProjectItem[]; onNavigate: (s: Screen
 
 const ProjectDetailScreen: React.FC<{ project: ProjectItem; onBack: () => void }> = ({ project, onBack }) => {
   const pics = Array.isArray(project.project_pictures) ? project.project_pictures : [];
-  
+  // Show first picture before Problem, second before Solution, third before Scope, rest at the end
+  const [pic1, pic2, pic3, ...restPics] = pics;
+
   return (
     <div className="pt-32 pb-32 animate-in fade-in zoom-in-95 duration-500">
-      <div className="container mx-auto px-6">
+      <div className="container mx-auto px-6 max-w-3xl">
         <button onClick={onBack} className="text-xs font-black uppercase tracking-widest text-[#742774] flex items-center gap-2 mb-12">
           <ChevronRight size={14} className="rotate-180" /> Back to projects
         </button>
-
-        <div className="grid lg:grid-cols-12 gap-16">
-          <div className="lg:col-span-7 space-y-12">
-            <div className="space-y-6">
-              <div className="text-xs font-black uppercase tracking-[0.3em] text-[#f09d1b]">{project.period || 'Case Study'}</div>
-              <h1 className="text-5xl md:text-7xl font-black tracking-tighter text-slate-900 leading-[0.9]">{project.name}</h1>
-              <div className="px-4 py-2 inline-block bg-slate-50 rounded-xl text-xs font-bold border border-slate-100">{project.client || project.company || 'Confidential'}</div>
-            </div>
-            
-            <div className="space-y-6">
-              <h3 className="text-sm font-black uppercase tracking-widest text-slate-400">Project Overview</h3>
-              <p className="text-2xl text-slate-600 font-medium leading-relaxed">
-                {project.description}
-              </p>
-            </div>
-
-            {/* Gallery */}
-            {pics.length > 0 && (
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                {pics.map((url, idx) => (
-                  <div key={idx} className="rounded-3xl overflow-hidden bg-slate-50 border border-slate-100 shadow-lg group">
-                    <img src={url} className="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-105" loading="lazy" />
-                  </div>
-                ))}
-              </div>
-            )}
+        <div className="space-y-12">
+          <div className="space-y-4">
+            <div className="text-xs font-black uppercase tracking-[0.3em] text-[#f09d1b]">{project.period || 'Case Study'}</div>
+            <h1 className="text-5xl md:text-7xl font-black tracking-tighter text-slate-900 leading-[0.9]">{project.name}</h1>
+            <div className="px-4 py-2 inline-block bg-slate-50 rounded-xl text-xs font-bold border border-slate-100">{project.client || project.company || 'Confidential'}</div>
           </div>
 
-          <div className="lg:col-span-5 space-y-10">
-            <div className="p-10 bg-[#742774] rounded-[2.5rem] text-white shadow-2xl shadow-purple-200">
-              <h4 className="text-[10px] font-black uppercase tracking-[0.3em] mb-6 opacity-60">Technical Features</h4>
-              <ul className="space-y-4">
-                {(project.features || []).map((f, i) => (
-                  <li key={i} className="flex gap-4 items-start">
-                    <CheckCircle2 size={18} className="shrink-0 mt-0.5 opacity-60" />
-                    <span className="text-sm font-bold tracking-tight">{f}</span>
-                  </li>
-                ))}
-              </ul>
+          {pic1 && (
+            <div className="rounded-3xl overflow-hidden bg-slate-50 border border-slate-100 shadow-lg">
+              <img src={pic1} className="w-full h-auto object-cover" loading="lazy" />
             </div>
+          )}
+          <div className="space-y-4">
+            <h3 className="text-sm font-black uppercase tracking-widest text-slate-400">Problem</h3>
+            <p className="text-2xl text-slate-600 font-medium leading-relaxed">{project.problem}</p>
+          </div>
 
-            <div className="p-10 bg-slate-50 rounded-[2.5rem] border border-slate-100">
-               <h4 className="text-[10px] font-black uppercase tracking-[0.3em] mb-6 text-slate-400">Tech Stack</h4>
-               <div className="grid grid-cols-2 gap-4">
-                  {["Power Apps", "Power Automate", "Dataverse", "Cloud Services"].map((tech, i) => (
-                    <div key={i} className="flex items-center gap-3 p-3 bg-white rounded-xl border border-slate-100">
-                      <div className="w-2 h-2 rounded-full bg-[#742774]"></div>
-                      <span className="text-[10px] font-black uppercase tracking-widest">{tech}</span>
-                    </div>
-                  ))}
-               </div>
+          {pic2 && (
+            <div className="rounded-3xl overflow-hidden bg-slate-50 border border-slate-100 shadow-lg">
+              <img src={pic2} className="w-full h-auto object-cover" loading="lazy" />
+            </div>
+          )}
+          <div className="space-y-4">
+            <h3 className="text-sm font-black uppercase tracking-widest text-slate-400">Solution</h3>
+            <p className="text-2xl text-slate-600 font-medium leading-relaxed">{project.solution}</p>
+          </div>
+
+          {pic3 && (
+            <div className="rounded-3xl overflow-hidden bg-slate-50 border border-slate-100 shadow-lg">
+              <img src={pic3} className="w-full h-auto object-cover" loading="lazy" />
+            </div>
+          )}
+          <div className="space-y-4">
+            <h3 className="text-sm font-black uppercase tracking-widest text-slate-400">Project Scope</h3>
+            <p className="text-2xl text-slate-600 font-medium leading-relaxed">{project.scope}</p>
+          </div>
+
+          {restPics.length > 0 && (
+            <div className="grid grid-cols-1 gap-6">
+              {restPics.map((url, idx) => (
+                <div key={idx} className="rounded-3xl overflow-hidden bg-slate-50 border border-slate-100 shadow-lg">
+                  <img src={url} className="w-full h-auto object-cover" loading="lazy" />
+                </div>
+              ))}
+            </div>
+          )}
+
+          <div className="p-10 bg-[#742774] rounded-[2.5rem] text-white shadow-2xl shadow-purple-200">
+            <h4 className="text-[10px] font-black uppercase tracking-[0.3em] mb-6 opacity-60">Technical Features</h4>
+            <ul className="space-y-4">
+              {(project.features || []).map((f, i) => (
+                <li key={i} className="flex gap-4 items-start">
+                  <CheckCircle2 size={18} className="shrink-0 mt-0.5 opacity-60" />
+                  <span className="text-sm font-bold tracking-tight">{f}</span>
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          <div className="p-10 bg-slate-50 rounded-[2.5rem] border border-slate-100">
+            <h4 className="text-[10px] font-black uppercase tracking-[0.3em] mb-6 text-slate-400">Tech Stack</h4>
+            <div className="grid grid-cols-2 gap-4">
+              {(project.tools || []).map((tech, i) => (
+                <div key={i} className="flex items-center gap-3 p-3 bg-white rounded-xl border border-slate-100">
+                  <div className="w-2 h-2 rounded-full bg-[#742774]"></div>
+                  <span className="text-[10px] font-black uppercase tracking-widest">{tech}</span>
+                </div>
+              ))}
             </div>
           </div>
         </div>
@@ -825,70 +847,14 @@ const App: React.FC = () => {
   const [youtubeTutorials, setYoutubeTutorials] = useState<YouTubeTutorial[]>([]);
   const [loading, setLoading] = useState(true);
 
-  const supabaseClient = useMemo(() => getSupabase(), []);
 
   useEffect(() => {
-    const fetchProjects = async () => {
-      try {
-        setLoading(true);
-        
-        if (!supabaseClient) {
-          console.warn("Supabase client not available, using local data.");
-          setProjects(portfolioData.projects);
-          setFeaturedProjects(portfolioData.projects.slice(0, 3));
-          setYoutubeTutorials(portfolioData.youtubeTutorials);
-          return;
-        }
-
-        const { data, error } = await supabaseClient
-          .from('projects')
-          .select('*')
-          .order('created_at', { ascending: false });
-
-        if (error) {
-          console.error("Supabase request error:", error.message, error.details);
-          throw error;
-        }
-
-        const normalized = (data || []).map((p: any) => {
-          // Robust mapping for different image column names and formats
-          let pics: string[] = [];
-          const rawPics = p.project_pictures || p.image_url || p.thumbnail;
-          
-          if (Array.isArray(rawPics)) {
-            pics = rawPics;
-          } else if (typeof rawPics === 'string') {
-            const trimmed = rawPics.trim();
-            if (trimmed.startsWith('[') && trimmed.endsWith(']')) {
-              try { pics = JSON.parse(trimmed); } catch { pics = [trimmed]; }
-            } else if (trimmed.includes(',')) {
-              pics = trimmed.split(',').map(s => s.trim()).filter(s => s.length > 0);
-            } else if (trimmed.length > 0) {
-              pics = [trimmed];
-            }
-          }
-
-          return {
-            ...p,
-            project_pictures: pics
-          };
-        });
-
-        const finalProjects = normalized.length ? normalized : portfolioData.projects;
-        setProjects(finalProjects);
-        setFeaturedProjects(finalProjects.slice(0, 3));
-        setYoutubeTutorials(portfolioData.youtubeTutorials);
-      } catch (err: any) {
-        console.error("Detailed Fetch Error:", err?.message || err || "Unknown error");
-        setProjects(portfolioData.projects);
-        setFeaturedProjects(portfolioData.projects.slice(0, 3));
-        setYoutubeTutorials(portfolioData.youtubeTutorials);
-      } finally {
-        setTimeout(() => setLoading(false), 600);
-      }
-    };
-    fetchProjects();
-  }, [supabaseClient]);
+    setLoading(true);
+    setProjects(portfolioData.projects);
+    setFeaturedProjects(portfolioData.projects.slice(0, 3));
+    setYoutubeTutorials(portfolioData.youtubeTutorials);
+    setTimeout(() => setLoading(false), 600);
+  }, []);
 
   const navigate = (screen: Screen, data: any = null) => {
     window.scrollTo(0, 0);
