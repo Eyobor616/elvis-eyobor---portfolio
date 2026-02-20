@@ -1,0 +1,19 @@
+/* Main styles for Elvis Eyobor Portfolio */
+
+:root {
+  --power-purple: #742774;
+  --ms-blue: #0078d4;
+  --automate-blue: #0066ff;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  scroll-behavior: smooth;
+  background-color: #ffffff;
+}
