@@ -159,7 +159,7 @@ export const portfolioData: PortfolioData = {
   youtubeTutorials: [
     {
       id: "iqc4kKRBHwE",
-      title: "Is \"Vibe Coding\" the Future of Power Apps? 🤯 Build Professional Apps in Minutes with AI",
+      title: "Is \"Vibe Coding\" the Future of Power Apps? 🤯 Build Professional Apps in Minutes with AI.",
       description: "I’ll be demonstrating how to go from a blank canvas to a fully animated, AI-generated Power App. No complex formulas, just the right \"vibes\" and smart AI prompting.",
       thumbnailUrl: "https://i.ytimg.com/an_webp/jRSmmbH2hJQ/mqdefault_6s.webp?du=3000&sqp=CIy19cwG&rs=AOn4CLDJziNGWsNZQZA3fgc98RmaJ84ioA",
       videoUrl: "https://www.youtube.com/watch?v=jRSmmbH2hJQ",
