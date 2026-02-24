@@ -30,6 +30,10 @@ export interface ProjectItem {
   project_pictures?: string[];
   image_url?: string[] | string; // Added to handle the original column name
   company?: string;
+  problem?: string;
+  solution?: string;
+  scope?: string;
+  tools?: string[];
 }
 
 export interface SkillCategory {
