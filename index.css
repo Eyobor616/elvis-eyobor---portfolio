@@ -1,4 +1,4 @@
-/* Main styles for Elvis Eyobor Portfolio */
+/* Main styles for Elvis Eyobor Portfolio-- */
 
 :root {
   --power-purple: #742774;
@@ -13,7 +13,7 @@
 }
 
 body {
-  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-family: "Plus Jakarta Sans", sans-serif;
   scroll-behavior: smooth;
   background-color: #ffffff;
 }
