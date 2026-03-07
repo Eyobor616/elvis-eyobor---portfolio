@@ -1,92 +1,125 @@
-
-import { PortfolioData, SocialMediaItem } from './types';
+import { PortfolioData, SocialMediaItem } from "./types";
 
 export const portfolioData: PortfolioData = {
   personalInfo: {
     name: "Elvis O. Eyobor",
-    title: "Microsoft Certified Power Platform Developer | Data Analyst | Operations Planner",
+    title:
+      "Microsoft Certified Power Platform Developer | Data Analyst | Operations Planner",
     nationality: "Nigerian",
     birthday: "2nd Feb",
     socials: {
       phone: "+234 8080927312",
       linkedin: "Elvis Eyobor",
-      youtube: "@eyoborelvis8224"
-    }
+      youtube: "@eyoborelvis8224",
+    },
   },
-  professionalSummary: "Microsoft Certified Power Platform Developer with expertise in designing and implementing custom business solutions using Power Apps, Power Automate, and Power BI. Skilled in building efficient workflows, managing diverse data sources (Dataverse, SQL Server, SharePoint), and creating interactive dashboards for data visualization. Bringing over five years of experience in maintenance planning, I offer additional proficiency in Excel, SAP, and CMMS. Dedicated to streamlining operations and enabling data-driven decision-making to achieve organizational goals.",
+  professionalSummary:
+    "Microsoft Certified Power Platform Developer with expertise in designing and implementing custom business solutions using Power Apps, Power Automate, and Power BI. Skilled in building efficient workflows, managing diverse data sources (Dataverse, SQL Server, SharePoint), and creating interactive dashboards for data visualization. Bringing over five years of experience in maintenance planning, I offer additional proficiency in Excel, SAP, and CMMS. Dedicated to streamlining operations and enabling data-driven decision-making to achieve organizational goals.",
   technicalSkills: [
     {
       category: "Power Platform",
-      skills: ["Power Apps (Canvas & Model-Driven)", "Power Automate", "Power BI", "Dataverse"]
+      skills: [
+        "Power Apps (Canvas & Model-Driven)",
+        "Power Automate",
+        "Power BI",
+        "Dataverse",
+      ],
     },
     {
       category: "Data & Infrastructure",
-      skills: ["SQL Server", "SharePoint", "Azure", "SAP ERP", "CMMS", "Excel Expert"]
+      skills: [
+        "SQL Server",
+        "SharePoint",
+        "Azure",
+        "SAP ERP",
+        "CMMS",
+        "Excel Expert",
+      ],
     },
     {
       category: "Development Tools",
-      skills: ["PowerShell", "HTML", "CSS", "JavaScript", "TypeScript", "AutoCAD"]
-    }
+      skills: [
+        "PowerShell",
+        "HTML",
+        "CSS",
+        "JavaScript",
+        "TypeScript",
+        "AutoCAD",
+      ],
+    },
   ],
   experience: [
     {
       role: "Power Platform Solutions Expert",
       company: "Super PowerLabs",
       period: "2023 - Date",
-      description: "I design, develop, and implement business solutions using Microsoft Power Platform. My role focuses on building efficient workflows, connecting data sources (Dataverse, SQL Server, SharePoint), and delivering solutions that streamline operations and align with organizational goals."
+      description:
+        "I design, develop, and implement business solutions using Microsoft Power Platform. My role focuses on building efficient workflows, connecting data sources (Dataverse, SQL Server, SharePoint), and delivering solutions that streamline operations and align with organizational goals.",
     },
     {
       role: "Maintenance & App Management",
       company: "GZ Industries Ltd",
       period: "2020 - 2023",
-      description: "Built a CMMS app using PowerApps to streamline machine maintenance planning. Skilled in scheduling repairs, allocating personnel, and analyzing operational performance with tools like SAP & Excel."
+      description:
+        "Built a CMMS app using PowerApps to streamline machine maintenance planning. Skilled in scheduling repairs, allocating personnel, and analyzing operational performance with tools like SAP & Excel.",
     },
     {
       role: "Trainer on Microsoft packages and AutoCAD",
       company: "Soft Apex",
       period: "2018 - 2019",
-      description: "Engaged students in tutorials to improve their proficiency in AutoCAD, making and interpreting various designs in all projections. Improved students' background on real-life use of Microsoft Packages in various firms."
-    }
+      description:
+        "Engaged students in tutorials to improve their proficiency in AutoCAD, making and interpreting various designs in all projections. Improved students' background on real-life use of Microsoft Packages in various firms.",
+    },
   ],
   projects: [
     {
       name: "Contact and Distribution List Management Application",
       client: "IFPMA",
       period: "Oct - Dec 2024",
-      description: "Developed a Power App to manage over 8,000 contacts in Azure Active Directory (AAD) and Exchange.",
+      description:
+        "Developed a Power App to manage over 8,000 contacts in Azure Active Directory (AAD) and Exchange.",
       project_pictures: [
         "https://firebasestorage.googleapis.com/v0/b/studio-1523050100-2a1a4.firebasestorage.app/o/Elvis%20Portfolio%20Files%2FProjects%2FContact%20Manager%2FContact%20Manager%20(2025)_page-0001.jpg?alt=media&token=ef7aca46-f331-4387-bad7-86a77c1c1490",
         "https://firebasestorage.googleapis.com/v0/b/studio-1523050100-2a1a4.firebasestorage.app/o/Elvis%20Portfolio%20Files%2FProjects%2FContact%20Manager%2FContact%20Manager%20(2025)_page-0002.jpg?alt=media&token=15c72eeb-e39a-4e93-a04f-c97dcbfebba3",
         "https://firebasestorage.googleapis.com/v0/b/studio-1523050100-2a1a4.firebasestorage.app/o/Elvis%20Portfolio%20Files%2FProjects%2FContact%20Manager%2FContact%20Manager%20(2025)_page-0003.jpg?alt=media&token=6dc133f8-9b76-483b-9e4f-55f41f087e95",
         "https://firebasestorage.googleapis.com/v0/b/studio-1523050100-2a1a4.firebasestorage.app/o/Elvis%20Portfolio%20Files%2FProjects%2FContact%20Manager%2FContact%20Manager%20(2025)_page-0004.jpg?alt=media&token=fb8cfbd6-fe05-4e96-aee6-bfc306c8fb11",
         "https://firebasestorage.googleapis.com/v0/b/studio-1523050100-2a1a4.firebasestorage.app/o/Elvis%20Portfolio%20Files%2FProjects%2FContact%20Manager%2FContact%20Manager%20(2025)_page-0005.jpg?alt=media&token=e3ab80d8-0bd9-458d-bd28-a20425942119",
-        "https://firebasestorage.googleapis.com/v0/b/studio-1523050100-2a1a4.firebasestorage.app/o/Elvis%20Portfolio%20Files%2FProjects%2FContact%20Manager%2FContact%20Manager_process%20flow.png?alt=media&token=14762b64-2500-4319-9b3a-42bf899aa5a1"
-
+        "https://firebasestorage.googleapis.com/v0/b/studio-1523050100-2a1a4.firebasestorage.app/o/Elvis%20Portfolio%20Files%2FProjects%2FContact%20Manager%2FContact%20Manager_process%20flow.png?alt=media&token=14762b64-2500-4319-9b3a-42bf899aa5a1",
       ],
       features: [
         "Contact creation and modification",
         "Distribution list management",
         "Bi-directional data synchronization with AAD",
         "Role-based access control",
-        "Efficient contact searching with distribution list visibility"
+        "Efficient contact searching with distribution list visibility",
       ],
-      problem: "The organization struggled with a decentralized and inefficient system for managing thousands of contacts across different platforms, leading to data inconsistencies and administrative overhead.",
-      solution: "A centralized Power App was built to serve as a single source of truth for contact information. It integrated seamlessly with Azure AD and Exchange, enabling real-time, bi-directional data synchronization.",
-      scope: "The project involved creating a user-friendly interface for creating, viewing, and editing contacts, managing distribution lists, implementing role-based access for security, and building a powerful search functionality.",
-      tools: ["Power Apps", "Power Automate", "Azure Active Directory", "Microsoft Exchange", "SharePoint"]
+      problem:
+        "The organization struggled with a decentralized and inefficient system for managing thousands of contacts across different platforms, leading to data inconsistencies and administrative overhead.",
+      solution:
+        "A centralized Power App was built to serve as a single source of truth for contact information. It integrated seamlessly with Azure AD and Exchange, enabling real-time, bi-directional data synchronization.",
+      scope:
+        "The project involved creating a user-friendly interface for creating, viewing, and editing contacts, managing distribution lists, implementing role-based access for security, and building a powerful search functionality.",
+      tools: [
+        "Power Apps",
+        "Power Automate",
+        "Azure Active Directory",
+        "Microsoft Exchange",
+        "SharePoint",
+      ],
     },
     {
       name: "Vendor Management System",
       client: "ZoomTan Inc.",
       period: "Feb - Apr 2025",
-      description: "Solution to address Zoom Tan's key operational challenges regarding vendor oversight.",
+      description:
+        "Solution to address Zoom Tan's key operational challenges regarding vendor oversight.",
       project_pictures: [
         "https://firebasestorage.googleapis.com/v0/b/studio-1523050100-2a1a4.firebasestorage.app/o/Elvis%20Portfolio%20Files%2FProjects%2FVendor%20Management%20System%2FVMS-Admin%20Page.png?alt=media&token=6e90d12e-03ac-4e27-adc9-09a8c8f0bb67",
         "https://firebasestorage.googleapis.com/v0/b/studio-1523050100-2a1a4.firebasestorage.app/o/Elvis%20Portfolio%20Files%2FProjects%2FVendor%20Management%20System%2FVMS-Admin%20Page2.jpeg?alt=media&token=efce3d73-1906-45a0-8070-c2af54f0a18d",
         "https://firebasestorage.googleapis.com/v0/b/studio-1523050100-2a1a4.firebasestorage.app/o/Elvis%20Portfolio%20Files%2FProjects%2FVendor%20Management%20System%2FVMS-Approvers%20Page.jpeg?alt=media&token=1700c4a1-34cc-4679-859e-9abd6a9050cd",
         "https://firebasestorage.googleapis.com/v0/b/studio-1523050100-2a1a4.firebasestorage.app/o/Elvis%20Portfolio%20Files%2FProjects%2FVendor%20Management%20System%2FVMS-Home%20Page.jpeg?alt=media&token=78bf6715-0866-45df-b78d-a84874b98d4b",
         "https://firebasestorage.googleapis.com/v0/b/studio-1523050100-2a1a4.firebasestorage.app/o/Elvis%20Portfolio%20Files%2FProjects%2FVendor%20Management%20System%2FVMS-Invoice%20Page.png?alt=media&token=c386ad35-1ce7-450f-a75d-a951b2dd9ff3",
-        "https://firebasestorage.googleapis.com/v0/b/studio-1523050100-2a1a4.firebasestorage.app/o/Elvis%20Portfolio%20Files%2FProjects%2FVendor%20Management%20System%2FVMS_Form%20page.png?alt=media&token=744c6530-ce79-49c3-b1ba-0a75641c8a88"
+        "https://firebasestorage.googleapis.com/v0/b/studio-1523050100-2a1a4.firebasestorage.app/o/Elvis%20Portfolio%20Files%2FProjects%2FVendor%20Management%20System%2FVMS_Form%20page.png?alt=media&token=744c6530-ce79-49c3-b1ba-0a75641c8a88",
       ],
       features: [
         "Seamless integration with existing Excel spreadsheets",
@@ -95,18 +128,22 @@ export const portfolioData: PortfolioData = {
         "Edit and resubmit functionality for denied entries",
         "Deeplinking from email notifications",
         "Role-based access control",
-        "Real-time notifications for approvals and updates"
+        "Real-time notifications for approvals and updates",
       ],
-      problem: "Vendor oversight was manual, prone to errors, and lacked a clear approval process. Tracking vendor status and communication was inefficient, relying heavily on spreadsheets and email chains.",
-      solution: "A Power Platform-based system was developed to automate the entire vendor management lifecycle. It integrated with existing Excel data, introduced a formal multi-level approval workflow, and provided real-time notifications.",
-      scope: "The scope included building an app for vendor data entry, creating an automated approval process with Power Automate, ensuring real-time data sync, enabling deep linking from emails for quick access, and implementing robust role-based security.",
-      tools: ["Power Apps", "Power Automate", "SharePoint", "Excel", "Outlook"]
+      problem:
+        "Vendor oversight was manual, prone to errors, and lacked a clear approval process. Tracking vendor status and communication was inefficient, relying heavily on spreadsheets and email chains.",
+      solution:
+        "A Power Platform-based system was developed to automate the entire vendor management lifecycle. It integrated with existing Excel data, introduced a formal multi-level approval workflow, and provided real-time notifications.",
+      scope:
+        "The scope included building an app for vendor data entry, creating an automated approval process with Power Automate, ensuring real-time data sync, enabling deep linking from emails for quick access, and implementing robust role-based security.",
+      tools: ["Power Apps", "Power Automate", "SharePoint", "Excel", "Outlook"],
     },
     {
       name: "Employee Performance Tracking & Review",
       client: "ZoomTan Inc.",
       period: "Jul - Aug 2025",
-      description: "Developed with Microsoft Power Platform and embedded within Microsoft Teams, designed to streamline mid-year and end-of-year evaluations.",
+      description:
+        "Developed with Microsoft Power Platform and embedded within Microsoft Teams, designed to streamline mid-year and end-of-year evaluations.",
       project_pictures: [
         "https://firebasestorage.googleapis.com/v0/b/studio-1523050100-2a1a4.firebasestorage.app/o/Elvis%20Portfolio%20Files%2FProjects%2FPerformance%20Review%2FPR-AllEmployees-FilterPane.png?alt=media&token=a6fea49f-92b4-464a-af82-89f197157cdf",
         "https://firebasestorage.googleapis.com/v0/b/studio-1523050100-2a1a4.firebasestorage.app/o/Elvis%20Portfolio%20Files%2FProjects%2FPerformance%20Review%2FPR-AllEmployees-UserForm.jpeg?alt=media&token=27080b14-1eee-47c9-992c-ab7b4a68f752",
@@ -120,7 +157,7 @@ export const portfolioData: PortfolioData = {
         "https://firebasestorage.googleapis.com/v0/b/studio-1523050100-2a1a4.firebasestorage.app/o/Elvis%20Portfolio%20Files%2FProjects%2FPerformance%20Review%2FPR-Reports.png?alt=media&token=702cc717-d4ce-4e5e-b243-a1cf2304c15a",
         "https://firebasestorage.googleapis.com/v0/b/studio-1523050100-2a1a4.firebasestorage.app/o/Elvis%20Portfolio%20Files%2FProjects%2FPerformance%20Review%2FPR-UpdateReview-Form.png?alt=media&token=d2b02004-0d66-4dfe-9c37-966a9e6a2202",
         "https://firebasestorage.googleapis.com/v0/b/studio-1523050100-2a1a4.firebasestorage.app/o/Elvis%20Portfolio%20Files%2FProjects%2FPerformance%20Review%2FPR-UpdateReview.png?alt=media&token=1f94b905-e7ba-46c7-a746-ada42b309155",
-        "https://firebasestorage.googleapis.com/v0/b/studio-1523050100-2a1a4.firebasestorage.app/o/Elvis%20Portfolio%20Files%2FProjects%2FPerformance%20Review%2FPR-ViewFormQuestions.jpeg?alt=media&token=8eb3cdc6-ae8d-4028-aa9a-fc41ef429d28"
+        "https://firebasestorage.googleapis.com/v0/b/studio-1523050100-2a1a4.firebasestorage.app/o/Elvis%20Portfolio%20Files%2FProjects%2FPerformance%20Review%2FPR-ViewFormQuestions.jpeg?alt=media&token=8eb3cdc6-ae8d-4028-aa9a-fc41ef429d28",
       ],
       features: [
         "Replacing PerformYard legacy system",
@@ -129,89 +166,123 @@ export const portfolioData: PortfolioData = {
         "Integration with Paychex via SFTP",
         "Centralized goal tracking",
         "Built for Microsoft 365 with robust security",
-        "Full mobile compatibility"
+        "Full mobile compatibility",
       ],
-      problem: "The existing performance review process was cumbersome, reliant on a legacy system, and lacked integration with modern collaboration tools, making it difficult to track goals and feedback.",
-      solution: "A new solution was built on the Power Platform and embedded within Microsoft Teams to create a seamless and integrated experience. It automated review cycles and centralized goal and performance tracking.",
-      scope: "The project focused on replacing the old system, automating review workflows, enabling role-specific feedback, integrating with the Paychex payroll system via SFTP for data exchange, and ensuring the app was secure and mobile-friendly within the Microsoft 365 ecosystem.",
-      tools: ["Power Apps", "Power Automate", "Microsoft Teams", "SharePoint", "SFTP"]
+      problem:
+        "The existing performance review process was cumbersome, reliant on a legacy system, and lacked integration with modern collaboration tools, making it difficult to track goals and feedback.",
+      solution:
+        "A new solution was built on the Power Platform and embedded within Microsoft Teams to create a seamless and integrated experience. It automated review cycles and centralized goal and performance tracking.",
+      scope:
+        "The project focused on replacing the old system, automating review workflows, enabling role-specific feedback, integrating with the Paychex payroll system via SFTP for data exchange, and ensuring the app was secure and mobile-friendly within the Microsoft 365 ecosystem.",
+      tools: [
+        "Power Apps",
+        "Power Automate",
+        "Microsoft Teams",
+        "SharePoint",
+        "SFTP",
+      ],
     },
     {
       name: "Dynamics Rating Advanced Inspection Report App",
       client: "Associated with Super PowerLabs",
       period: "Jul - Sept 2024",
-      description: "Simplifies service and installation reporting for field agents.",
-      project_pictures: ["https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?q=80&w=1200&auto=format&fit=crop"],
+      description:
+        "Simplifies service and installation reporting for field agents.",
+      project_pictures: [
+        "https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?q=80&w=1200&auto=format&fit=crop",
+      ],
       features: [
         "Digital signatures",
         "Media capture",
         "PDF export",
         "Offline access",
         "Task tracking",
-        "Integration with Power BI and SharePoint"
+        "Integration with Power BI and SharePoint",
       ],
-      problem: "Field agents relied on manual, paper-based processes for service and installation reports, which was slow, error-prone, and made data collection for analysis nearly impossible.",
-      solution: "A mobile-first Power App was developed to digitize the entire reporting process. It enabled agents to capture data, media, and signatures directly from the field, even when offline.",
-      scope: "The app's scope included features for digital signature capture, photo and video embedding, automatic PDF generation of reports, full offline capability with data synchronization, task tracking for agents, and seamless integration with Power BI for analytics and SharePoint for document storage.",
-      tools: ["Power Apps", "Power Automate", "Power BI", "SharePoint", "Dataverse"]
-    }
+      problem:
+        "Field agents relied on manual, paper-based processes for service and installation reports, which was slow, error-prone, and made data collection for analysis nearly impossible.",
+      solution:
+        "A mobile-first Power App was developed to digitize the entire reporting process. It enabled agents to capture data, media, and signatures directly from the field, even when offline.",
+      scope:
+        "The app's scope included features for digital signature capture, photo and video embedding, automatic PDF generation of reports, full offline capability with data synchronization, task tracking for agents, and seamless integration with Power BI for analytics and SharePoint for document storage.",
+      tools: [
+        "Power Apps",
+        "Power Automate",
+        "Power BI",
+        "SharePoint",
+        "Dataverse",
+      ],
+    },
   ],
   youtubeTutorials: [
     {
       id: "iqc4kKRBHwE",
-      title: "Is \"Vibe Coding\" the Future of Power Apps? 🤯 Build Professional Apps in Minutes with AI.",
-      description: "I’ll be demonstrating how to go from a blank canvas to a fully animated, AI-generated Power App. No complex formulas, just the right \"vibes\" and smart AI prompting.",
-      thumbnailUrl: "https://i.ytimg.com/an_webp/jRSmmbH2hJQ/mqdefault_6s.webp?du=3000&sqp=CIy19cwG&rs=AOn4CLDJziNGWsNZQZA3fgc98RmaJ84ioA",
+      title:
+        'Is "Vibe Coding" the Future of Power Apps? 🤯 Build Professional Apps in Minutes with AI.',
+      description:
+        'I’ll be demonstrating how to go from a blank canvas to a fully animated, AI-generated Power App. No complex formulas, just the right "vibes" and smart AI prompting.',
+      thumbnailUrl:
+        "https://i.ytimg.com/an_webp/jRSmmbH2hJQ/mqdefault_6s.webp?du=3000&sqp=CIy19cwG&rs=AOn4CLDJziNGWsNZQZA3fgc98RmaJ84ioA",
       videoUrl: "https://www.youtube.com/watch?v=jRSmmbH2hJQ",
       views: "",
-      duration: "45:32"
+      duration: "45:32",
     },
     {
       id: "iqc4kKRBHwE",
-      title: "Easy SharePoint Setup: Create Sites & Lists + PowerApps Made Simple",
-      description: "⚡️ Supercharge Your Workflow with SharePoint + PowerApps! In this hands-on tutorial, you’ll learn how to create dynamic SharePoint Sites and Lists from scratch—plus how to seamlessly integrate them with PowerApps to unlock real automation potential.",
+      title:
+        "Easy SharePoint Setup: Create Sites & Lists + PowerApps Made Simple",
+      description:
+        "⚡️ Supercharge Your Workflow with SharePoint + PowerApps! In this hands-on tutorial, you’ll learn how to create dynamic SharePoint Sites and Lists from scratch—plus how to seamlessly integrate them with PowerApps to unlock real automation potential.",
       thumbnailUrl: "https://i.ytimg.com/vi/iqc4kKRBHwE/maxresdefault.jpg",
       videoUrl: "https://www.youtube.com/watch?v=iqc4kKRBHwE",
       views: "",
-      duration: "45:32"
+      duration: "45:32",
     },
     {
       id: "h84Z_pFCaGU",
-      title: "PowerApps Studio Explained in Minutes: Beginner-Friendly Interface Tour! 2025",
-      description: "Most people use Power Apps for basic data entry. I’m going to show you how to use AI to turn it into a high-performance, beautiful tool that users actually love to use.",
-      thumbnailUrl: "https://i.ytimg.com/an_webp/h84Z_pFCaGU/mqdefault_6s.webp?du=3000&sqp=CLyh9cwG&rs=AOn4CLAnPQjrb7_WYhnXf66E_svKOj09_Q",
+      title:
+        "PowerApps Studio Explained in Minutes: Beginner-Friendly Interface Tour! 2025",
+      description:
+        "Most people use Power Apps for basic data entry. I’m going to show you how to use AI to turn it into a high-performance, beautiful tool that users actually love to use.",
+      thumbnailUrl:
+        "https://i.ytimg.com/an_webp/h84Z_pFCaGU/mqdefault_6s.webp?du=3000&sqp=CLyh9cwG&rs=AOn4CLAnPQjrb7_WYhnXf66E_svKOj09_Q",
       videoUrl: "https://www.youtube.com/watch?v=h84Z_pFCaGU",
       views: "",
-      duration: "38:15"
+      duration: "38:15",
     },
     {
       id: "meEFY3-hff8",
-      title: "PowerApps Sorting Hack: Build Custom Reordering Logic in Minutes!",
-      description: "Struggling with Realtime sorting and item reordering in PowerApps? Say goodbye to complex formulas and clunky workarounds! In this ultra-fast, beginner-friendly guide, I’ll show you how to build a sleek, custom sorting and record reordering feature step-by-step. It’s simple, clean, and works like magic. ✨",
+      title:
+        "PowerApps Sorting Hack: Build Custom Reordering Logic in Minutes!",
+      description:
+        "Struggling with Realtime sorting and item reordering in PowerApps? Say goodbye to complex formulas and clunky workarounds! In this ultra-fast, beginner-friendly guide, I’ll show you how to build a sleek, custom sorting and record reordering feature step-by-step. It’s simple, clean, and works like magic. ✨",
       thumbnailUrl: "https://i.ytimg.com/vi/meEFY3-hff8/maxresdefault.jpg",
       videoUrl: "https://www.youtube.com/watch?v=meEFY3-hff8&t=40s",
       views: "",
-      duration: "52:48"
-    }
-    ,
+      duration: "52:48",
+    },
     {
       id: "GzICP4ljS_g",
-      title: "Generate PDFs from Microsoft PowerApps in seconds (Email PDF as attachment)",
-      description: "Stop wasting time generating reports manually! This is the fastest way to create professional PDF documents directly from your PowerApps and automatically send them out as email attachments. Learn the secret technique for one-click PDF generation for invoices, forms, reports, and more. Master this essential Power Platform skill and automate your business processes today!",
+      title:
+        "Generate PDFs from Microsoft PowerApps in seconds (Email PDF as attachment)",
+      description:
+        "Stop wasting time generating reports manually! This is the fastest way to create professional PDF documents directly from your PowerApps and automatically send them out as email attachments. Learn the secret technique for one-click PDF generation for invoices, forms, reports, and more. Master this essential Power Platform skill and automate your business processes today!",
       thumbnailUrl: "https://i.ytimg.com/vi/GzICP4ljS_g/maxresdefault.jpg",
       videoUrl: "https://www.youtube.com/watch?v=GzICP4ljS_g",
       views: "",
-      duration: "22:10"
+      duration: "22:10",
     },
     {
       id: "EbgVG6Z-yhs",
-      title: "PowerApps Tutorial: Build a Responsive User Experience & Survey Form (Step-by-Step Guide)",
-      description: "Unlock the power of Microsoft PowerApps with this beginner-friendly tutorial! In this video, I show you how to create a fully responsive survey or questionnaire form using containers for seamless mobile and desktop experiences.",
+      title:
+        "PowerApps Tutorial: Build a Responsive User Experience & Survey Form (Step-by-Step Guide)",
+      description:
+        "Unlock the power of Microsoft PowerApps with this beginner-friendly tutorial! In this video, I show you how to create a fully responsive survey or questionnaire form using containers for seamless mobile and desktop experiences.",
       thumbnailUrl: "https://i.ytimg.com/vi/EbgVG6Z-yhs/maxresdefault.jpg",
       videoUrl: "https://www.youtube.com/watch?v=EbgVG6Z-yhs&t=580s",
       views: "20K views",
-      duration: "1:15:40"
-    }
+      duration: "1:15:40",
+    },
   ],
   community: {
     name: "Learn Power Apps",
@@ -224,43 +295,82 @@ export const portfolioData: PortfolioData = {
     following: 23,
     handle: "@elvis-eyobor-3582",
     role: "Community Moderator",
-    level: "Level 6 - Purple Belt"
+    level: "Level 6 - Purple Belt",
   },
+  reviews: [
+    {
+      name: "Aisha Bello",
+      role: "Head of Operations",
+      company: "ZoomTan Inc.",
+      rating: 5,
+      quote:
+        "Elvis delivered a robust vendor-management workflow that removed weeks of manual work. Results were immediate and the team adopted it within days.",
+      avatarUrl:
+        "https://images.unsplash.com/photo-1544005313-94ddf0286df2?q=80&w=400&auto=format&fit=crop",
+    },
+    {
+      name: "Daniel Okoye",
+      role: "IT Manager",
+      company: "IFPMA",
+      rating: 5,
+      quote:
+        "Highly knowledgeable and pragmatic — the contact management app scaled perfectly and integrated with our existing systems without downtime.",
+      avatarUrl:
+        "https://images.unsplash.com/photo-1545996124-1b7c2b8e0b2b?q=80&w=400&auto=format&fit=crop",
+    },
+    {
+      name: "Chioma Nwankwo",
+      role: "Product Lead",
+      company: "Super PowerLabs",
+      rating: 4,
+      quote:
+        "Great collaborator who translates requirements into clean, maintainable solutions. Would hire again for future Power Platform projects.",
+      avatarUrl:
+        "https://images.unsplash.com/photo-1547425260-76bcadfb4f2c?q=80&w=400&auto=format&fit=crop",
+    },
+  ],
   socialMedia: [
     {
       name: "YouTube",
       url: "https://www.youtube.com/@eyoborelvis8224?sub_confirmation=1",
-      iconUrl: "https://upload.wikimedia.org/wikipedia/commons/0/09/YouTube_full-color_icon_%282017%29.svg"
+      iconUrl:
+        "https://upload.wikimedia.org/wikipedia/commons/0/09/YouTube_full-color_icon_%282017%29.svg",
     },
     {
       name: "WhatsApp",
       url: "https://wa.me/2348080927312",
-      iconUrl: "https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg"
+      iconUrl:
+        "https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg",
     },
     {
       name: "X",
       url: "https://x.com/Eyobor1",
-      iconUrl: "https://upload.wikimedia.org/wikipedia/commons/c/ce/X_logo_2023.svg"
+      iconUrl:
+        "https://upload.wikimedia.org/wikipedia/commons/c/ce/X_logo_2023.svg",
     },
     {
       name: "Facebook",
       url: "https://www.facebook.com/groups/1419650492494392",
-      iconUrl: "https://upload.wikimedia.org/wikipedia/commons/5/51/Facebook_f_logo_%282019%29.svg"
+      iconUrl:
+        "https://upload.wikimedia.org/wikipedia/commons/5/51/Facebook_f_logo_%282019%29.svg",
     },
     {
       name: "LinkedIn",
       url: "https://www.linkedin.com/in/elvis-eyobor-9105a41a1/",
-      iconUrl: "https://upload.wikimedia.org/wikipedia/commons/c/ca/LinkedIn_logo_initials.png"
+      iconUrl:
+        "https://upload.wikimedia.org/wikipedia/commons/c/ca/LinkedIn_logo_initials.png",
     },
     {
       name: "Linktree",
       url: "https://tr.ee/RSKr08CYod",
-      iconUrl: "https://logos-world.net/wp-content/uploads/2022/12/Linktree-Symbol.png"
+      iconUrl:
+        "https://logos-world.net/wp-content/uploads/2022/12/Linktree-Symbol.png",
     },
     {
       name: "Skool",
       url: "https://www.skool.com/@elvis-eyobor-3582?g=learn-power-apps",
-      iconUrl: "https://theprocesshacker.com/wp-content/uploads/2024/07/Skool-1024x1024.png"
-    }
-  ]
+      iconUrl:
+        "https://theprocesshacker.com/wp-content/uploads/2024/07/Skool-1024x1024.png",
+    },
+  ],
 };

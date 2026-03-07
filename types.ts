@@ -1,4 +1,3 @@
-
 export interface Socials {
   phone: string;
   linkedin: string;
@@ -59,7 +58,17 @@ export interface PortfolioData {
   projects: ProjectItem[];
   youtubeTutorials: YouTubeTutorial[];
   community?: CommunityProfile;
+  reviews?: Review[];
   socialMedia: SocialMediaItem[];
+}
+
+export interface Review {
+  name: string;
+  role?: string;
+  company?: string;
+  rating: number; // 1-5
+  quote: string;
+  avatarUrl?: string;
 }
 
 export interface CommunityProfile {
