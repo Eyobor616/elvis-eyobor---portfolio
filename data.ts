@@ -232,7 +232,7 @@ export const portfolioData: PortfolioData = {
       title:
         "Easy SharePoint Setup: Create Sites & Lists + PowerApps Made Simple",
       description:
-        "⚡️ Supercharge Your Workflow with SharePoint + PowerApps! In this hands-on tutorial, you’ll learn how to create dynamic SharePoint Sites and Lists from scratch—plus how to seamlessly integrate them with PowerApps to unlock real automation potential.",
+        "⚡️ Supercharge Your Workflow with SharePoint + PowerApps! In this hands-on tutorial, you will learn how to create dynamic SharePoint Sites and Lists from scratch—plus how to seamlessly integrate them with PowerApps to unlock real automation potential.",
       thumbnailUrl: "https://i.ytimg.com/vi/iqc4kKRBHwE/maxresdefault.jpg",
       videoUrl: "https://www.youtube.com/watch?v=iqc4kKRBHwE",
       views: "",

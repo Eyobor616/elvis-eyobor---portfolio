@@ -110,7 +110,7 @@ const CommunityContributionsSection: React.FC = () => {
                 <MessageCircle size={20} />
               </div>
               <h2 className="text-4xl md:text-5xl font-black tracking-tighter">
-                Community Contributions
+                Community Contributions 1
               </h2>
             </div>
             <p className="italic text-slate-500">
